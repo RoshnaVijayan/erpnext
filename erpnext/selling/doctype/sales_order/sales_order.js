@@ -664,7 +664,7 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 			} else {
 				let po_items = [];
 				me.frm.doc.items.forEach(d => {
-					let ordered_qty = me.get_ordered_qty(d, me.frm.doc);
+					let ordered_qty = me.get_ordered_qty(d, d.warehouse);
 					let pending_qty = (flt(d.stock_qty) - ordered_qty) / flt(d.conversion_factor);
 					if (pending_qty > 0) {
 						po_items.push({
